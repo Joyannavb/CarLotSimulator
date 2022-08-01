@@ -6,21 +6,42 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
-            //TODO
+            CarLot lot = new CarLot();
+            
+            var Prius= new Car(); 
+            lot.CarList.Add(Prius);
+            Prius.Year = 2016;
+            Prius.Make = "Toyota";
+            Prius.Model = "Prius";
+            Prius.EngineNoise = "quiet hum";
+            Prius.IsDrivable = true;
+            Prius.HonkNoise = "Beep";
+            Prius.MakeEngineNoise(Prius.EngineNoise);
+            Prius.MakeHonkNoise(Prius.HonkNoise);
 
-            //Create a seperate class file called Car
-            //Car shall have the following properties: Year, Make, Model, EngineNoise, HonkNoise, IsDriveable
-            //Car shall have the following methods: MakeEngineNoise(), MakeHonkNoise()
-            //The methods should take one string parameter: the respective noise property
+            var Corolla = new Car() { Year = 2011, Make = "Toyota", Model = "Corolla", EngineNoise = "subtle grind", IsDrivable = false, HonkNoise = "loud beep"};
+            lot.CarList.Add(Corolla);
+            Corolla.MakeEngineNoise(Corolla.EngineNoise);
+            Corolla.MakeHonkNoise(Corolla.HonkNoise);
+
+            var Camary = new Car()
+            {
+                Year = 2017,
+                Make = "Toyota",
+                Model = "Camary",
+                EngineNoise = "a suble hum",
+                IsDrivable = true,
+                HonkNoise = "quiet beep",
+            };
+            lot.CarList.Add(Camary);
+            Camary.MakeEngineNoise(Camary.EngineNoise);
+            Camary.MakeHonkNoise(Camary.HonkNoise);
 
 
-            //Now that the Car class is created we can instanciate 3 new cars
-            //Set the properties for each of the cars
-            //Call each of the methods for each car
-
-            //*************BONUS*************//
-
-            // Set the properties utilizing the 3 different ways we learned about, one way for each car
+            foreach (var car in lot.CarList)
+            {
+                Console.WriteLine($" Year:{ car.Year} Make: { car.Make} Model:{ car.Model}"  ); 
+            }
 
             //*************BONUS X 2*************//
 
